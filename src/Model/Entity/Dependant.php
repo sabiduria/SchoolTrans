@@ -21,6 +21,8 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Pupil $pupil
+ * @property \App\Model\Entity\Payment[] $payments
+ * @property \App\Model\Entity\Transport[] $transports
  */
 class Dependant extends Entity
 {
@@ -45,5 +47,7 @@ class Dependant extends Entity
         'deleted' => true,
         'user' => true,
         'pupil' => true,
+        'payments' => true,
+        'transports' => true,
     ];
 }

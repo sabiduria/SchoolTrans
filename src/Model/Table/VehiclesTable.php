@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Vehicles Model
  *
+ * @property \App\Model\Table\AssignmentsTable&\Cake\ORM\Association\HasMany $Assignments
+ *
  * @method \App\Model\Entity\Vehicle newEmptyEntity()
  * @method \App\Model\Entity\Vehicle newEntity(array $data, array $options = [])
  * @method array<\App\Model\Entity\Vehicle> newEntities(array $data, array $options = [])

@@ -27,6 +27,7 @@ class AssignmentsTableTest extends TestCase
         'app.Assignments',
         'app.Drivers',
         'app.Vehicles',
+        'app.Transports',
     ];
 
     /**

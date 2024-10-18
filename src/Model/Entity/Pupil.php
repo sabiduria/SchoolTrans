@@ -20,6 +20,8 @@ use Cake\ORM\Entity;
  * @property string|null $createdby
  * @property string|null $modifiedby
  * @property bool|null $deleted
+ *
+ * @property \App\Model\Entity\Dependant[] $dependants
  */
 class Pupil extends Entity
 {
@@ -44,5 +46,6 @@ class Pupil extends Entity
         'createdby' => true,
         'modifiedby' => true,
         'deleted' => true,
+        'dependants' => true,
     ];
 }

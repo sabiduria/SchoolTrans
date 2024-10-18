@@ -25,6 +25,7 @@ class PupilsTableTest extends TestCase
      */
     protected array $fixtures = [
         'app.Pupils',
+        'app.Dependants',
     ];
 
     /**

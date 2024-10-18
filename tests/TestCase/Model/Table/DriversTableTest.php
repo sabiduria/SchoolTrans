@@ -25,6 +25,7 @@ class DriversTableTest extends TestCase
      */
     protected array $fixtures = [
         'app.Drivers',
+        'app.Assignments',
     ];
 
     /**

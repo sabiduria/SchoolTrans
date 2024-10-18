@@ -115,6 +115,8 @@
                             <th><?= __('Dropoffatschool') ?></th>
                             <th><?= __('Pickupschool') ?></th>
                             <th><?= __('Dropoffathome') ?></th>
+                            <th><?= __('Pickuplocation') ?></th>
+                            <th><?= __('Dropofflocation') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
                             <th><?= __('Createdby') ?></th>
@@ -131,6 +133,8 @@
                             <td><?= h($transport->dropoffatschool) ?></td>
                             <td><?= h($transport->pickupschool) ?></td>
                             <td><?= h($transport->dropoffathome) ?></td>
+                            <td><?= h($transport->pickuplocation) ?></td>
+                            <td><?= h($transport->dropofflocation) ?></td>
                             <td><?= h($transport->created) ?></td>
                             <td><?= h($transport->modified) ?></td>
                             <td><?= h($transport->createdby) ?></td>

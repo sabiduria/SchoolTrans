@@ -27,6 +27,8 @@ class DependantsTableTest extends TestCase
         'app.Dependants',
         'app.Users',
         'app.Pupils',
+        'app.Payments',
+        'app.Transports',
     ];
 
     /**

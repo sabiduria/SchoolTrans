@@ -22,6 +22,7 @@ use Cake\ORM\Entity;
  * @property bool|null $deleted
  *
  * @property \App\Model\Entity\Profile $profile
+ * @property \App\Model\Entity\Dependant[] $dependants
  */
 class User extends Entity
 {
@@ -47,6 +48,7 @@ class User extends Entity
         'modifiedby' => true,
         'deleted' => true,
         'profile' => true,
+        'dependants' => true,
     ];
 
     /**

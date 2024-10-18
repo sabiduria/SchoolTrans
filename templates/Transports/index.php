@@ -18,6 +18,8 @@
                     <th><?= $this->Paginator->sort('dropoffatschool') ?></th>
                     <th><?= $this->Paginator->sort('pickupschool') ?></th>
                     <th><?= $this->Paginator->sort('dropoffathome') ?></th>
+                    <th><?= $this->Paginator->sort('pickuplocation') ?></th>
+                    <th><?= $this->Paginator->sort('dropofflocation') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th><?= $this->Paginator->sort('createdby') ?></th>
@@ -36,6 +38,8 @@
                     <td><?= h($transport->dropoffatschool) ?></td>
                     <td><?= h($transport->pickupschool) ?></td>
                     <td><?= h($transport->dropoffathome) ?></td>
+                    <td><?= h($transport->pickuplocation) ?></td>
+                    <td><?= h($transport->dropofflocation) ?></td>
                     <td><?= h($transport->created) ?></td>
                     <td><?= h($transport->modified) ?></td>
                     <td><?= h($transport->createdby) ?></td>

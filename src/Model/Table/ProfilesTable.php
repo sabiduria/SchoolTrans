@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Profiles Model
  *
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\HasMany $Users
+ *
  * @method \App\Model\Entity\Profile newEmptyEntity()
  * @method \App\Model\Entity\Profile newEntity(array $data, array $options = [])
  * @method array<\App\Model\Entity\Profile> newEntities(array $data, array $options = [])

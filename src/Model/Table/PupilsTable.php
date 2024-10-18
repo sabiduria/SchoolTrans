@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Pupils Model
  *
+ * @property \App\Model\Table\DependantsTable&\Cake\ORM\Association\HasMany $Dependants
+ *
  * @method \App\Model\Entity\Pupil newEmptyEntity()
  * @method \App\Model\Entity\Pupil newEntity(array $data, array $options = [])
  * @method array<\App\Model\Entity\Pupil> newEntities(array $data, array $options = [])

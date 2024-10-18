@@ -27,6 +27,14 @@
                     <td><?= $transport->hasValue('dependant') ? $this->Html->link($transport->dependant->id, ['controller' => 'Dependants', 'action' => 'view', $transport->dependant->id]) : '' ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Pickuplocation') ?></th>
+                    <td><?= h($transport->pickuplocation) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Dropofflocation') ?></th>
+                    <td><?= h($transport->dropofflocation) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Createdby') ?></th>
                     <td><?= h($transport->createdby) ?></td>
                 </tr>

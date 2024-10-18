@@ -15,6 +15,8 @@ use Cake\ORM\Entity;
  * @property string|null $createdby
  * @property string|null $modifiedby
  * @property bool|null $deleted
+ *
+ * @property \App\Model\Entity\User[] $users
  */
 class Profile extends Entity
 {
@@ -34,5 +36,6 @@ class Profile extends Entity
         'createdby' => true,
         'modifiedby' => true,
         'deleted' => true,
+        'users' => true,
     ];
 }

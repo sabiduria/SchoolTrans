@@ -25,6 +25,7 @@ class ProfilesTableTest extends TestCase
      */
     protected array $fixtures = [
         'app.Profiles',
+        'app.Users',
     ];
 
     /**

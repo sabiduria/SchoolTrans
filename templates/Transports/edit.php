@@ -30,6 +30,8 @@
                     echo $this->Form->control('dropoffatschool', ['empty' => true]);
                     echo $this->Form->control('pickupschool', ['empty' => true]);
                     echo $this->Form->control('dropoffathome', ['empty' => true]);
+                    echo $this->Form->control('pickuplocation');
+                    echo $this->Form->control('dropofflocation');
                     echo $this->Form->control('createdby');
                     echo $this->Form->control('modifiedby');
                     echo $this->Form->control('deleted');

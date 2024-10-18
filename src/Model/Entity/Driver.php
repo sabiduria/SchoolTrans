@@ -17,6 +17,8 @@ use Cake\ORM\Entity;
  * @property string|null $createdby
  * @property string|null $modifiedby
  * @property bool|null $deleted
+ *
+ * @property \App\Model\Entity\Assignment[] $assignments
  */
 class Driver extends Entity
 {
@@ -38,5 +40,6 @@ class Driver extends Entity
         'createdby' => true,
         'modifiedby' => true,
         'deleted' => true,
+        'assignments' => true,
     ];
 }

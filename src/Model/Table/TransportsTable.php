@@ -91,6 +91,16 @@ class TransportsTable extends Table
             ->allowEmptyDateTime('dropoffathome');
 
         $validator
+            ->scalar('pickuplocation')
+            ->maxLength('pickuplocation', 45)
+            ->allowEmptyString('pickuplocation');
+
+        $validator
+            ->scalar('dropofflocation')
+            ->maxLength('dropofflocation', 45)
+            ->allowEmptyString('dropofflocation');
+
+        $validator
             ->scalar('createdby')
             ->maxLength('createdby', 45)
             ->allowEmptyString('createdby');

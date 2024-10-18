@@ -13,6 +13,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\DriversTable&\Cake\ORM\Association\BelongsTo $Drivers
  * @property \App\Model\Table\VehiclesTable&\Cake\ORM\Association\BelongsTo $Vehicles
+ * @property \App\Model\Table\TransportsTable&\Cake\ORM\Association\HasMany $Transports
  *
  * @method \App\Model\Entity\Assignment newEmptyEntity()
  * @method \App\Model\Entity\Assignment newEntity(array $data, array $options = [])

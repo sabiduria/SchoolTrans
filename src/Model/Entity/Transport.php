@@ -15,6 +15,8 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\DateTime|null $dropoffatschool
  * @property \Cake\I18n\DateTime|null $pickupschool
  * @property \Cake\I18n\DateTime|null $dropoffathome
+ * @property string|null $pickuplocation
+ * @property string|null $dropofflocation
  * @property \Cake\I18n\DateTime|null $created
  * @property \Cake\I18n\DateTime|null $modified
  * @property string|null $createdby
@@ -42,6 +44,8 @@ class Transport extends Entity
         'dropoffatschool' => true,
         'pickupschool' => true,
         'dropoffathome' => true,
+        'pickuplocation' => true,
+        'dropofflocation' => true,
         'created' => true,
         'modified' => true,
         'createdby' => true,

@@ -21,6 +21,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Driver $driver
  * @property \App\Model\Entity\Vehicle $vehicle
+ * @property \App\Model\Entity\Transport[] $transports
  */
 class Assignment extends Entity
 {
@@ -45,5 +46,6 @@ class Assignment extends Entity
         'deleted' => true,
         'driver' => true,
         'vehicle' => true,
+        'transports' => true,
     ];
 }
