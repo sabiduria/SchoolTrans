@@ -13,6 +13,8 @@
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('plate') ?></th>
+                    <th><?= $this->Paginator->sort('mark') ?></th>
+                    <th><?= $this->Paginator->sort('nbplaces') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th><?= $this->Paginator->sort('createdby') ?></th>
@@ -26,6 +28,8 @@
                 <tr>
                     <td><?= $this->Number->format($vehicle->id) ?></td>
                     <td><?= h($vehicle->plate) ?></td>
+                    <td><?= h($vehicle->mark) ?></td>
+                    <td><?= $vehicle->nbplaces === null ? '' : $this->Number->format($vehicle->nbplaces) ?></td>
                     <td><?= h($vehicle->created) ?></td>
                     <td><?= h($vehicle->modified) ?></td>
                     <td><?= h($vehicle->createdby) ?></td>

@@ -10,6 +10,8 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string|null $plate
+ * @property string|null $mark
+ * @property int|null $nbplaces
  * @property \Cake\I18n\DateTime|null $created
  * @property \Cake\I18n\DateTime|null $modified
  * @property string|null $createdby
@@ -31,6 +33,8 @@ class Vehicle extends Entity
      */
     protected array $_accessible = [
         'plate' => true,
+        'mark' => true,
+        'nbplaces' => true,
         'created' => true,
         'modified' => true,
         'createdby' => true,

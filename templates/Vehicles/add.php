@@ -18,6 +18,8 @@
                 <legend><?= __('Add Vehicle') ?></legend>
                 <?php
                     echo $this->Form->control('plate');
+                    echo $this->Form->control('mark');
+                    echo $this->Form->control('nbplaces');
                     echo $this->Form->control('createdby');
                     echo $this->Form->control('modifiedby');
                     echo $this->Form->control('deleted');

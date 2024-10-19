@@ -23,6 +23,10 @@
                     <td><?= h($vehicle->plate) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Mark') ?></th>
+                    <td><?= h($vehicle->mark) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Createdby') ?></th>
                     <td><?= h($vehicle->createdby) ?></td>
                 </tr>
@@ -33,6 +37,10 @@
                 <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($vehicle->id) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Nbplaces') ?></th>
+                    <td><?= $vehicle->nbplaces === null ? '' : $this->Number->format($vehicle->nbplaces) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>

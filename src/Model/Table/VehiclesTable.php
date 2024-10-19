@@ -66,6 +66,15 @@ class VehiclesTable extends Table
             ->allowEmptyString('plate');
 
         $validator
+            ->scalar('mark')
+            ->maxLength('mark', 45)
+            ->allowEmptyString('mark');
+
+        $validator
+            ->integer('nbplaces')
+            ->allowEmptyString('nbplaces');
+
+        $validator
             ->scalar('createdby')
             ->maxLength('createdby', 45)
             ->allowEmptyString('createdby');

@@ -21,8 +21,10 @@ class VehiclesFixture extends TestFixture
             [
                 'id' => 1,
                 'plate' => 'Lorem ip',
-                'created' => '2024-10-18 14:01:28',
-                'modified' => '2024-10-18 14:01:28',
+                'mark' => 'Lorem ipsum dolor sit amet',
+                'nbplaces' => 1,
+                'created' => '2024-10-19 13:27:07',
+                'modified' => '2024-10-19 13:27:07',
                 'createdby' => 'Lorem ipsum dolor sit amet',
                 'modifiedby' => 'Lorem ipsum dolor sit amet',
                 'deleted' => 1,
