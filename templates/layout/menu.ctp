@@ -10,6 +10,9 @@
         <?= $this->Html->link('<i data-feather="users" class="align-self-center menu-icon"></i>Drivers', ['controller'=>'drivers', 'action'=>'index'], ['escape'=>false]) ?>
     </li>
     <li>
+        <?= $this->Html->link('<i data-feather="activity" class="align-self-center menu-icon"></i>Rides', ['controller'=>'transports', 'action'=>'index'], ['escape'=>false]) ?>
+    </li>
+    <li>
         <?= $this->Html->link('<i data-feather="credit-card" class="align-self-center menu-icon"></i>Payments', ['controller'=>'payments', 'action'=>'index'], ['escape'=>false]) ?>
     </li>
 
