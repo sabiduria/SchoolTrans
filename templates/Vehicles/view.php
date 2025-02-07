@@ -3,92 +3,42 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Vehicle $vehicle
  */
+
+use App\Controller\GeneralController;
+
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Vehicle'), ['action' => 'edit', $vehicle->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Vehicle'), ['action' => 'delete', $vehicle->id], ['confirm' => __('Are you sure you want to delete # {0}?', $vehicle->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Vehicles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Vehicle'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column column-80">
         <div class="vehicles view content">
-            <h3><?= h($vehicle->id) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Plate') ?></th>
-                    <td><?= h($vehicle->plate) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Mark') ?></th>
-                    <td><?= h($vehicle->mark) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Createdby') ?></th>
-                    <td><?= h($vehicle->createdby) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Modifiedby') ?></th>
-                    <td><?= h($vehicle->modifiedby) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($vehicle->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Nbplaces') ?></th>
-                    <td><?= $vehicle->nbplaces === null ? '' : $this->Number->format($vehicle->nbplaces) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($vehicle->created) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Modified') ?></th>
-                    <td><?= h($vehicle->modified) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Deleted') ?></th>
-                    <td><?= $vehicle->deleted ? __('Yes') : __('No'); ?></td>
-                </tr>
-            </table>
+            <h3><?= h($vehicle->mark) ?> (<?= h($vehicle->plate) ?>)</h3>
+            <hr>
+
             <div class="related">
-                <h4><?= __('Related Assignments') ?></h4>
+                <h4><?= __('Assignations') ?></h4>
                 <?php if (!empty($vehicle->assignments)) : ?>
                 <div class="table-responsive">
-                    <table>
+                    <table class="table table-bordered">
                         <tr>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Driver Id') ?></th>
-                            <th><?= __('Vehicle Id') ?></th>
-                            <th><?= __('Starthour') ?></th>
-                            <th><?= __('Endhour') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th><?= __('Createdby') ?></th>
-                            <th><?= __('Modifiedby') ?></th>
-                            <th><?= __('Deleted') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
+                            <th><?= __('Chauffeur') ?></th>
+                            <th><?= __('Heure debut') ?></th>
+                            <th><?= __('Heure fin') ?></th>
+                            <th><?= __('Date') ?></th>
+                            <th><?= __('Par') ?></th>
+                            <th class="text-end"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($vehicle->assignments as $assignment) : ?>
                         <tr>
                             <td><?= h($assignment->id) ?></td>
-                            <td><?= h($assignment->driver_id) ?></td>
-                            <td><?= h($assignment->vehicle_id) ?></td>
-                            <td><?= h($assignment->starthour) ?></td>
-                            <td><?= h($assignment->endhour) ?></td>
+                            <td><?= GeneralController::getNameOf($assignment->driver_id, 'Drivers') ?></td>
+                            <td><?= date('H:i', strtotime($assignment->starthour)) ?></td>
+                            <td><?= date('H:i', strtotime($assignment->endhour)) ?></td>
                             <td><?= h($assignment->created) ?></td>
-                            <td><?= h($assignment->modified) ?></td>
                             <td><?= h($assignment->createdby) ?></td>
-                            <td><?= h($assignment->modifiedby) ?></td>
-                            <td><?= h($assignment->deleted) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Assignments', 'action' => 'view', $assignment->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Assignments', 'action' => 'edit', $assignment->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Assignments', 'action' => 'delete', $assignment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $assignment->id)]) ?>
+                            <td class="text-end">
+                                <?= $this->Html->link(__('Details'), ['controller' => 'Assignments', 'action' => 'view', $assignment->id], ['class' => 'btn btn-success btn-sm']) ?>
+                                <?= $this->Html->link(__('Editer'), ['controller' => 'Assignments', 'action' => 'edit', $assignment->id], ['class'=>'btn btn-primary btn-sm']) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Assignments', 'action' => 'delete', $assignment->id], ['class'=>'btn btn-danger btn-sm', 'confirm' => __('Are you sure you want to delete # {0}?', $assignment->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

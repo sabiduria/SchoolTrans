@@ -5,29 +5,23 @@
  */
 ?>
 <div class="row mt-3">
-    <!--aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Vehicles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside-->
     <div class="column column-80">
         <div class="vehicles form content">
             <?= $this->Form->create($vehicle) ?>
             <fieldset>
-                <legend><?= __('Add Vehicle') ?></legend>
+                <legend><?= __('Ajout Vehicule') ?></legend>
                 <div class="form-group">
-                    <?= $this->Form->control('plate', ['class'=>'form-control']); ?>
+                    <?= $this->Form->control('plate', ['class'=>'form-control', 'label' => 'Plaque d\'immatriculation']); ?>
                 </div>
                 <div class="form-group">
-                    <?= $this->Form->control('mark', ['class'=>'form-control']); ?>
+                    <?= $this->Form->control('mark', ['class'=>'form-control', 'label' => 'Marque']); ?>
                 </div>
                 <div class="form-group">
-                    <?= $this->Form->control('nbplaces', ['class'=>'form-control', 'label'=>'Number of place']); ?>
+                    <?= $this->Form->control('nbplaces', ['class'=>'form-control', 'label'=>'Nombre de place']); ?>
                 </div>
             </fieldset>
             <div class="form-group">
-                <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-success']) ?>
+                <?= $this->Form->button(__('Enregistrer'), ['class'=>'btn btn-success']) ?>
             </div>
             <?= $this->Form->end() ?>
         </div>
