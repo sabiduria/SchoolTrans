@@ -5,15 +5,6 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Assignment'), ['action' => 'edit', $assignment->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Assignment'), ['action' => 'delete', $assignment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $assignment->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Assignments'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Assignment'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column column-80">
         <div class="assignments view content">
             <h3><?= h($assignment->id) ?></h3>
@@ -63,7 +54,7 @@
                 <h4><?= __('Related Transports') ?></h4>
                 <?php if (!empty($assignment->transports)) : ?>
                 <div class="table-responsive">
-                    <table>
+                    <table class="table table-bordered">
                         <tr>
                             <th><?= __('Id') ?></th>
                             <th><?= __('Assignment Id') ?></th>
@@ -98,9 +89,9 @@
                             <td><?= h($transport->modifiedby) ?></td>
                             <td><?= h($transport->deleted) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Transports', 'action' => 'view', $transport->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Transports', 'action' => 'edit', $transport->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Transports', 'action' => 'delete', $transport->id], ['confirm' => __('Are you sure you want to delete # {0}?', $transport->id)]) ?>
+                                <?= $this->Html->link(__('Details'), ['controller' => 'Transports', 'action' => 'view', $transport->id], ['class'=>'btn btn-success btn-sm']) ?>
+                                <?= $this->Html->link(__('Editer'), ['controller' => 'Transports', 'action' => 'edit', $transport->id], ['class'=>'btn btn-primary btn-sm']) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Transports', 'action' => 'delete', $transport->id], ['class'=>'btn btn-danger btn-sm', 'confirm' => __('Voulez-vous supprimer cette information ?')]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

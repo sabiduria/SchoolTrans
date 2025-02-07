@@ -5,15 +5,6 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Pupil'), ['action' => 'edit', $pupil->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Pupil'), ['action' => 'delete', $pupil->id], ['confirm' => __('Are you sure you want to delete # {0}?', $pupil->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Pupils'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Pupil'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column column-80">
         <div class="pupils view content">
             <h3><?= h($pupil->name) ?></h3>
@@ -71,7 +62,7 @@
                 <h4><?= __('Related Dependants') ?></h4>
                 <?php if (!empty($pupil->dependants)) : ?>
                 <div class="table-responsive">
-                    <table>
+                    <table class="table table-bordered">
                         <tr>
                             <th><?= __('Id') ?></th>
                             <th><?= __('User Id') ?></th>
@@ -83,7 +74,7 @@
                             <th><?= __('Createdby') ?></th>
                             <th><?= __('Modifiedby') ?></th>
                             <th><?= __('Deleted') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
+                            <th class="text-end"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($pupil->dependants as $dependant) : ?>
                         <tr>
@@ -97,10 +88,10 @@
                             <td><?= h($dependant->createdby) ?></td>
                             <td><?= h($dependant->modifiedby) ?></td>
                             <td><?= h($dependant->deleted) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Dependants', 'action' => 'view', $dependant->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Dependants', 'action' => 'edit', $dependant->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Dependants', 'action' => 'delete', $dependant->id], ['confirm' => __('Are you sure you want to delete # {0}?', $dependant->id)]) ?>
+                            <td class="text-end">
+                                <?= $this->Html->link(__('Details'), ['controller' => 'Dependants', 'action' => 'view', $dependant->id], ['class'=>'btn btn-success btn-sm']) ?>
+                                <?= $this->Html->link(__('Editer'), ['controller' => 'Dependants', 'action' => 'edit', $dependant->id], ['class'=>'btn btn-primary btn-sm']) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Dependants', 'action' => 'delete', $dependant->id], ['class'=>'btn btn-danger btn-sm', 'confirm' => __('Voulez-vous supprimer cette information ?')]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

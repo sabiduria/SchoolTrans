@@ -40,7 +40,7 @@ use App\Controller\GeneralController;
                             <td class="text-end">
                                 <?= $this->Html->link(__('Details'), ['controller' => 'Assignments', 'action' => 'view', $assignment->id], ['class'=>'btn btn-success btn-sm']) ?>
                                 <?= $this->Html->link(__('Editer'), ['controller' => 'Assignments', 'action' => 'edit', $assignment->id], ['class'=>'btn btn-primary btn-sm']) ?>
-                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Assignments', 'action' => 'delete', $assignment->id], ['class'=>'btn btn-danger btn-sm', 'confirm' => __('Are you sure you want to delete # {0}?', $assignment->id)]) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Assignments', 'action' => 'delete', $assignment->id], ['class'=>'btn btn-danger btn-sm', 'confirm' => __('Voulez-vous supprimer cette information ?')]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

@@ -5,19 +5,10 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Dependant'), ['action' => 'edit', $dependant->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Dependant'), ['action' => 'delete', $dependant->id], ['confirm' => __('Are you sure you want to delete # {0}?', $dependant->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Dependants'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Dependant'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column column-80">
         <div class="dependants view content">
             <h3><?= h($dependant->id) ?></h3>
-            <table>
+            <table class="table table-bordered">
                 <tr>
                     <th><?= __('User') ?></th>
                     <td><?= $dependant->hasValue('user') ? $this->Html->link($dependant->user->name, ['controller' => 'Users', 'action' => 'view', $dependant->user->id]) : '' ?></td>
@@ -63,7 +54,7 @@
                 <h4><?= __('Related Payments') ?></h4>
                 <?php if (!empty($dependant->payments)) : ?>
                 <div class="table-responsive">
-                    <table>
+                    <table class="table table-bordered">
                         <tr>
                             <th><?= __('Id') ?></th>
                             <th><?= __('Dependant Id') ?></th>
@@ -76,7 +67,7 @@
                             <th><?= __('Createdby') ?></th>
                             <th><?= __('Modifiedby') ?></th>
                             <th><?= __('Deleted') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
+                            <th class="text-end"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($dependant->payments as $payment) : ?>
                         <tr>
@@ -91,10 +82,10 @@
                             <td><?= h($payment->createdby) ?></td>
                             <td><?= h($payment->modifiedby) ?></td>
                             <td><?= h($payment->deleted) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Payments', 'action' => 'view', $payment->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Payments', 'action' => 'edit', $payment->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Payments', 'action' => 'delete', $payment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $payment->id)]) ?>
+                            <td class="text-end">
+                                <?= $this->Html->link(__('Details'), ['controller' => 'Payments', 'action' => 'view', $payment->id], ['class'=>'btn btn-success btn-sm']) ?>
+                                <?= $this->Html->link(__('Editer'), ['controller' => 'Payments', 'action' => 'edit', $payment->id], ['class'=>'btn btn-primary btn-sm']) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Payments', 'action' => 'delete', $payment->id], ['class'=>'btn btn-danger btn-sm', 'confirm' => __('Voulez-vous supprimer cette information ?')]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -106,7 +97,7 @@
                 <h4><?= __('Related Transports') ?></h4>
                 <?php if (!empty($dependant->transports)) : ?>
                 <div class="table-responsive">
-                    <table>
+                    <table class="table table-bordered">
                         <tr>
                             <th><?= __('Id') ?></th>
                             <th><?= __('Assignment Id') ?></th>
@@ -122,7 +113,7 @@
                             <th><?= __('Createdby') ?></th>
                             <th><?= __('Modifiedby') ?></th>
                             <th><?= __('Deleted') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
+                            <th class="text-end"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($dependant->transports as $transport) : ?>
                         <tr>
@@ -140,10 +131,10 @@
                             <td><?= h($transport->createdby) ?></td>
                             <td><?= h($transport->modifiedby) ?></td>
                             <td><?= h($transport->deleted) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Transports', 'action' => 'view', $transport->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Transports', 'action' => 'edit', $transport->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Transports', 'action' => 'delete', $transport->id], ['confirm' => __('Are you sure you want to delete # {0}?', $transport->id)]) ?>
+                            <td class="text-end">
+                                <?= $this->Html->link(__('Details'), ['controller' => 'Transports', 'action' => 'view', $transport->id], ['class'=>'btn btn-success btn-sm']) ?>
+                                <?= $this->Html->link(__('Editer'), ['controller' => 'Transports', 'action' => 'edit', $transport->id], ['class'=>'btn btn-primary btn-sm']) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Transports', 'action' => 'delete', $transport->id], ['class'=>'btn btn-danger btn-sm', 'confirm' => __('Voulez-vous supprimer cette information ?')]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
