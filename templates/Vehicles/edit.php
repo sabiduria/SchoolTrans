@@ -4,8 +4,8 @@
  * @var \App\Model\Entity\Vehicle $vehicle
  */
 ?>
-<div class="row">
-    <aside class="column">
+<div class="row mt-3">
+    <!--aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
@@ -15,22 +15,25 @@
             ) ?>
             <?= $this->Html->link(__('List Vehicles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
-    </aside>
+    </aside-->
     <div class="column column-80">
         <div class="vehicles form content">
             <?= $this->Form->create($vehicle) ?>
             <fieldset>
                 <legend><?= __('Edit Vehicle') ?></legend>
-                <?php
-                    echo $this->Form->control('plate');
-                    echo $this->Form->control('mark');
-                    echo $this->Form->control('nbplaces');
-                    echo $this->Form->control('createdby');
-                    echo $this->Form->control('modifiedby');
-                    echo $this->Form->control('deleted');
-                ?>
+                <div class="form-group">
+                    <?= $this->Form->control('plate', ['class'=>'form-control']); ?>
+                </div>
+                <div class="form-group">
+                    <?= $this->Form->control('mark', ['class'=>'form-control']); ?>
+                </div>
+                <div class="form-group">
+                    <?= $this->Form->control('nbplaces', ['class'=>'form-control', 'label'=>'Number of place']); ?>
+                </div>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <div class="form-group">
+                <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-success']) ?>
+            </div>
             <?= $this->Form->end() ?>
         </div>
     </div>

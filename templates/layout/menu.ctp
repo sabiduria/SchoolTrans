@@ -1,7 +1,7 @@
 <ul class="metismenu left-sidenav-menu">
     <li class="menu-label mt-0">Main</li>
     <li>
-        <?= $this->Html->link('<i data-feather="home" class="align-self-center menu-icon"></i>Dashboard', ['controller'=>''], ['escape'=>false]) ?>
+        <?= $this->Html->link('<i data-feather="home" class="align-self-center menu-icon"></i>Dashboard', ['controller'=>'/'], ['escape'=>false]) ?>
     </li>
     <li>
         <?= $this->Html->link('<i data-feather="link" class="align-self-center menu-icon"></i>Vehicles', ['controller'=>'vehicles', 'action'=>'index'], ['escape'=>false]) ?>

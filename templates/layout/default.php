@@ -51,7 +51,7 @@ $session = $this->request->getSession();
     <!-- LOGO -->
     <div class="brand">
         <?=
-        $this->Html->link('<span>'.$this->Html->image('logo.png', ['class'=>'logo-sm']).'</span>', ['controller'=>''], ['class'=>'logo', 'escape'=>false])
+        $this->Html->link('<span>'.$this->Html->image('logo.png', ['class'=>'logo-sm']).'</span>', ['controller'=>'/'], ['class'=>'logo', 'escape'=>false])
         ?>
 
     </div>

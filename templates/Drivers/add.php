@@ -4,28 +4,31 @@
  * @var \App\Model\Entity\Driver $driver
  */
 ?>
-<div class="row">
-    <aside class="column">
+<div class="row mt-3">
+    <!--aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Html->link(__('List Drivers'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
-    </aside>
+    </aside-->
     <div class="column column-80">
         <div class="drivers form content">
             <?= $this->Form->create($driver) ?>
             <fieldset>
                 <legend><?= __('Add Driver') ?></legend>
-                <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('phone');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('createdby');
-                    echo $this->Form->control('modifiedby');
-                    echo $this->Form->control('deleted');
-                ?>
+                <div class="form-group">
+                    <?= $this->Form->control('name', ['class'=>'form-control']); ?>
+                </div>
+                <div class="form-group">
+                    <?= $this->Form->control('phone', ['class'=>'form-control']); ?>
+                </div>
+                <div class="form-group">
+                    <?= $this->Form->control('email', ['class'=>'form-control']); ?>
+                </div>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <div class="form-group">
+                <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-success']) ?>
+            </div>
             <?= $this->Form->end() ?>
         </div>
     </div>
