@@ -5,29 +5,23 @@
  */
 ?>
 <div class="row mt-3">
-    <!--aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Drivers'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside-->
     <div class="column column-80">
         <div class="drivers form content">
             <?= $this->Form->create($driver) ?>
             <fieldset>
-                <legend><?= __('Add Driver') ?></legend>
+                <legend><?= __('Chauffeur') ?></legend>
                 <div class="form-group">
-                    <?= $this->Form->control('name', ['class'=>'form-control']); ?>
+                    <?= $this->Form->control('name', ['class'=>'form-control', 'label' => 'Nom Complet']); ?>
                 </div>
                 <div class="form-group">
-                    <?= $this->Form->control('phone', ['class'=>'form-control']); ?>
+                    <?= $this->Form->control('phone', ['class'=>'form-control', 'label' => 'Telephone']); ?>
                 </div>
                 <div class="form-group">
-                    <?= $this->Form->control('email', ['class'=>'form-control']); ?>
+                    <?= $this->Form->control('email', ['class'=>'form-control', 'label' => 'Email']); ?>
                 </div>
             </fieldset>
             <div class="form-group">
-                <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-success']) ?>
+                <?= $this->Form->button(__('Enregistrer'), ['class'=>'btn btn-success']) ?>
             </div>
             <?= $this->Form->end() ?>
         </div>

@@ -99,6 +99,22 @@ class GeneralController extends AppController
         return $user ? $user->name : null;
     }
 
+    public static function getVehicleDetails($id): ?string
+    {
+        $table = TableRegistry::getTableLocator()->get('Vehicles');
+
+        $data = $table->find()
+            ->select([
+                'name' => $table->query()->newExpr()->add([
+                    'CONCAT(mark, " (", plate, ")")'
+                ])
+            ])
+            ->where(['id' => $id])
+            ->first();
+
+        return $data ? $data->name : null;
+    }
+
     static function dateDiffInDays($date1, $date2): float|int
     {
         $diff = strtotime($date2) - strtotime($date1);
