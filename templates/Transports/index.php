@@ -12,13 +12,13 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('assignment_id') ?></th>
-                    <th><?= $this->Paginator->sort('dependant_id') ?></th>
-                    <th><?= $this->Paginator->sort('Home - School') ?></th>
-                    <th><?= $this->Paginator->sort('School - Home') ?></th>
+                    <th><?= $this->Paginator->sort('Chauffeurs') ?></th>
+                    <th><?= $this->Paginator->sort('Eleves') ?></th>
+                    <th><?= $this->Paginator->sort('Maison - Ecole') ?></th>
+                    <th><?= $this->Paginator->sort('Ecole - Maison') ?></th>
                     <th><?= $this->Paginator->sort('Status') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('createdby') ?></th>
+                    <th><?= $this->Paginator->sort('Date') ?></th>
+                    <th><?= $this->Paginator->sort('Par') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>

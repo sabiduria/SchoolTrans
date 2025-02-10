@@ -143,4 +143,16 @@ class GeneralController extends AppController
 
         return $table ? $table->shops_id : null;
     }
+
+    public static function getDependentName($dependent_id): mixed
+    {
+        $conn = ConnectionManager::get('default');
+        $stmt = $conn->execute("SELECT CONCAT('[', p.reference , '] ', p.name, ' ', p.lastname) as name FROM dependants d INNER JOIN pupils p ON p.id = d.pupil_id WHERE d.id = :id", ['id' => $dependent_id]);
+        $result = $stmt->fetch('assoc');
+        foreach ($result as $row) {
+            return $row;
+        }
+
+        return null;
+    }
 }
