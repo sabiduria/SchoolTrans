@@ -15,10 +15,17 @@ class UsersController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-    public function index()
+    public function index($type = null)
     {
-        $query = $this->Users->find()
-            ->contain(['Profiles']);
+        if ($type == 'p'){
+            $query = $this->Users->find()
+                ->contain(['Profiles'])
+                ->where(['profile_id' => 2]);
+        } else{
+            $query = $this->Users->find()
+                ->contain(['Profiles'])
+                ->where(['profile_id <> ' => 2]);
+        }
         $users = $this->paginate($query);
 
         $this->set(compact('users'));
@@ -50,7 +57,10 @@ class UsersController extends AppController
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                if ($user->profile_id != 2)
+                    return $this->redirect(['action' => 'index', 'u']);
+                else
+                    return $this->redirect(['action' => 'index', 'p']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
