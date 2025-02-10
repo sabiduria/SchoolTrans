@@ -10,6 +10,9 @@ $exempted = ['1' => 'Oui', '0' => 'Non']
         <div class="pupils form content">
             <?= $this->Form->create($pupil) ?>
             <div class="row my-2">
+                <div class="form-group">
+                    <?= $this->Form->control('parent_id', ['options' => $parents, 'class'=>'form-select select2', 'label' => 'Parent']); ?>
+                </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <?= $this->Form->control('name', ['class'=>'form-control', 'label' => 'Nom & Postnom']); ?>

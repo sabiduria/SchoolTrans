@@ -41,19 +41,53 @@ class PupilsController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function add($user_id)
     {
         $pupil = $this->Pupils->newEmptyEntity();
         if ($this->request->is('post')) {
             $pupil = $this->Pupils->patchEntity($pupil, $this->request->getData());
+
+            $pupil->reference = GeneralController::generateReference('Pupils', 'DEP');
+            $pupil->actived = 1;
+            $amount = $this->request->getData('amount');
+            $exempted = $this->request->getData('exempted');
+
             if ($this->Pupils->save($pupil)) {
                 $this->Flash->success(__('The pupil has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                GeneralController::NewDependant($user_id, $pupil->id, $amount, $exempted,'Sabiduria');
+
+                return $this->redirect(['controller' => 'users', 'action' => 'view', $user_id]);
             }
             $this->Flash->error(__('The pupil could not be saved. Please, try again.'));
         }
         $this->set(compact('pupil'));
+    }
+
+    public function add2()
+    {
+        $pupil = $this->Pupils->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $pupil = $this->Pupils->patchEntity($pupil, $this->request->getData());
+
+            $pupil->reference = GeneralController::generateReference('Pupils', 'DEP');
+            $pupil->actived = 1;
+            $amount = $this->request->getData('amount');
+            $exempted = $this->request->getData('exempted');
+            $parent_id = $this->request->getData('parent_id');
+
+            if ($this->Pupils->save($pupil)) {
+                $this->Flash->success(__('The pupil has been saved.'));
+
+                GeneralController::NewDependant($parent_id, $pupil->id, $amount, $exempted,'Sabiduria');
+
+                return $this->redirect(['controller' => 'users', 'action' => 'view', $parent_id]);
+            }
+            $this->Flash->error(__('The pupil could not be saved. Please, try again.'));
+        }
+        $parents = $this->fetchTable('Users')->find('list', limit: 200)->where(['profile_id' => 2]);
+        $parents = $this->paginate($parents);
+        $this->set(compact('pupil', 'parents'));
     }
 
     /**

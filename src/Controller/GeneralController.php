@@ -155,4 +155,21 @@ class GeneralController extends AppController
 
         return null;
     }
+
+    public static function NewDependant($user_id, $pupil_id, $amount, $exempted, $username): void
+    {
+        $connection = ConnectionManager::get('default');
+
+        $connection->insert('dependants', [
+            'user_id' => $user_id,
+            'pupil_id' => $pupil_id,
+            'amount' => $amount,
+            'exempted' => $exempted,
+            'created' => new DateTime('now'),
+            'modified' => new DateTime('now'),
+            'createdby' => $username,
+            'modifiedby' => $username,
+            'deleted' => 0
+        ], ['created' => 'datetime', 'modified' => 'datetime']);
+    }
 }
