@@ -7,60 +7,54 @@
  */
 ?>
 <div class="row mt-3">
-    <!--aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Transports'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside-->
     <div class="column column-80">
         <div class="transports form content">
             <?= $this->Form->create($transport) ?>
             <fieldset>
-                <legend><?= __('Add Transport') ?></legend>
+                <legend><?= __('Courses') ?></legend>
                 <div class="form-group">
-                    <?= $this->Form->control('assignment_id', ['options' => $assignments, 'class'=>'form-select']); ?>
+                    <?= $this->Form->control('assignment_id', ['options' => $assignments, 'class'=>'form-select', 'label' => 'Chauffeur']); ?>
                 </div>
                 <div class="form-group">
-                    <?= $this->Form->control('dependant_id', ['options' => $dependants, 'class'=>'form-select']); ?>
+                    <?= $this->Form->control('dependant_id', ['options' => $dependants, 'class'=>'form-select', 'label' => 'Abonné']); ?>
                 </div>
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <?= $this->Form->control('pickupathome', ['type'=>'time', 'empty' => true, 'class'=>'form-control', 'label'=>'Pick up at Home']); ?>
+                            <?= $this->Form->control('pickupathome', ['type'=>'datetime', 'empty' => true, 'class'=>'form-control', 'label'=>'Sortie Maison']); ?>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form">
-                            <?= $this->Form->control('dropoffatschool', ['type'=>'time', 'empty' => true, 'class'=>'form-control', 'label'=>'Drop off at school']); ?>
+                            <?= $this->Form->control('dropoffatschool', ['type'=>'datetime', 'empty' => true, 'class'=>'form-control', 'label'=>'Arrivée Ecole']); ?>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <?= $this->Form->control('pickupschool', ['type'=>'time', 'empty' => true, 'class'=>'form-control', 'label'=>'Pick up at school']); ?>
+                            <?= $this->Form->control('pickupschool', ['type'=>'datetime', 'empty' => true, 'class'=>'form-control', 'label'=>'Sortie Ecole']); ?>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <?= $this->Form->control('dropoffathome', ['type'=>'time', 'empty' => true, 'class'=>'form-control', 'label'=>'Drop off at home']); ?>
+                            <?= $this->Form->control('dropoffathome', ['type'=>'datetime', 'empty' => true, 'class'=>'form-control', 'label'=>'Arrivée Maison']); ?>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <?= $this->Form->control('pickuplocation', ['class'=>'form-control', 'label'=>'Pick up location']); ?>
+                            <?= $this->Form->control('pickuplocation', ['class'=>'form-control', 'label'=>'Pick up location (GPS)']); ?>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <?= $this->Form->control('dropofflocation', ['class'=>'form-control', 'label'=>'Drop off location']); ?>
+                            <?= $this->Form->control('dropofflocation', ['class'=>'form-control', 'label'=>'Drop off location (GPS)']); ?>
                         </div>
                     </div>
                 </div>
             </fieldset>
             <div class="form-group">
-                <?= $this->Form->button(__('Submit'), ['class'=>'btn btn-success']) ?>
+                <?= $this->Form->button(__('Enregistrer'), ['class'=>'btn btn-success']) ?>
             </div>
             <?= $this->Form->end() ?>
         </div>

@@ -54,8 +54,24 @@ class TransportsController extends AppController
             }
             $this->Flash->error(__('The transport could not be saved. Please, try again.'));
         }
-        $assignments = $this->Transports->Assignments->find('list', limit: 200)->all();
-        $dependants = $this->Transports->Dependants->find('list', limit: 200)->all();
+
+        $assignments = $this->Transports->Assignments->find('list', keyField: 'id', valueField: 'driver_id')
+            ->limit(200)
+            ->toArray();
+
+        // Map the list to use getDependantName($id)
+        $assignments = array_map(function ($driver_id) {
+            return GeneralController::getNameOf($driver_id, 'Drivers');
+        }, $assignments);
+
+        $dependants = $this->Transports->Dependants->find('list', keyField: 'id', valueField: 'id')
+            ->limit(200)
+            ->toArray();
+
+        // Map the list to use getDependantName($id)
+        $dependants = array_map(function ($id) {
+            return GeneralController::getDependentName($id);
+        }, $dependants);
         $this->set(compact('transport', 'assignments', 'dependants'));
     }
 
@@ -78,8 +94,24 @@ class TransportsController extends AppController
             }
             $this->Flash->error(__('The transport could not be saved. Please, try again.'));
         }
-        $assignments = $this->Transports->Assignments->find('list', limit: 200)->all();
-        $dependants = $this->Transports->Dependants->find('list', limit: 200)->all();
+
+        $assignments = $this->Transports->Assignments->find('list', keyField: 'id', valueField: 'driver_id')
+            ->limit(200)
+            ->toArray();
+
+        // Map the list to use getDependantName($id)
+        $assignments = array_map(function ($driver_id) {
+            return GeneralController::getNameOf($driver_id, 'Drivers');
+        }, $assignments);
+
+        $dependants = $this->Transports->Dependants->find('list', keyField: 'id', valueField: 'id')
+            ->limit(200)
+            ->toArray();
+
+        // Map the list to use getDependantName($id)
+        $dependants = array_map(function ($id) {
+            return GeneralController::getDependentName($id);
+        }, $dependants);
         $this->set(compact('transport', 'assignments', 'dependants'));
     }
 
@@ -101,5 +133,27 @@ class TransportsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function messages()
+    {
+        // Call the get_message function to retrieve the JSON response
+        $response = GeneralController::get_message();
+
+        // If the response is not empty, decode the JSON and populate the table
+        if ($response) {
+            $sent_messages = json_decode($response, true);
+        } else {
+            echo "No data received from the API.";
+            exit;
+        }
+
+        // Filter messages by specific sender (e.g., "SAMU")
+        $sender_filter = "SAMU"; // Replace with the sender you're interested in
+        $filtered_messages = array_filter($sent_messages, function($message) use ($sender_filter) {
+            return $message['from'] == $sender_filter;
+        });
+
+        $this->set(compact('filtered_messages'));
     }
 }

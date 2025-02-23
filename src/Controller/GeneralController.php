@@ -156,6 +156,30 @@ class GeneralController extends AppController
         return null;
     }
 
+    public static function getParentName($pupil_id): mixed
+    {
+        $conn = ConnectionManager::get('default');
+        $stmt = $conn->execute("SELECT u.name FROM dependants d INNER JOIN users u ON u.id = d.user_id WHERE d.pupil_id = :id", ['id' => $pupil_id]);
+        $result = $stmt->fetch('assoc');
+        foreach ($result as $row) {
+            return $row;
+        }
+
+        return null;
+    }
+
+    public static function getParentPhone($pupil_id): mixed
+    {
+        $conn = ConnectionManager::get('default');
+        $stmt = $conn->execute("SELECT u.phone FROM dependants d INNER JOIN users u ON u.id = d.user_id WHERE d.pupil_id = :id", ['id' => $pupil_id]);
+        $result = $stmt->fetch('assoc');
+        foreach ($result as $row) {
+            return $row;
+        }
+
+        return null;
+    }
+
     public static function NewDependant($user_id, $pupil_id, $amount, $exempted, $username): void
     {
         $connection = ConnectionManager::get('default');
@@ -171,5 +195,39 @@ class GeneralController extends AppController
             'modifiedby' => $username,
             'deleted' => 0
         ], ['created' => 'datetime', 'modified' => 'datetime']);
+    }
+
+    public static function get_message()
+    {
+        // Note in the query string
+        // we have a filter to get only the
+        // SENT messages
+        $myURI = "https://api.bulksms.com/v1/messages?filter=type%3DSENT";
+        $myUsername = "sabiduria777";
+        $myPassword = "SMS-$@b1antAr7";
+
+        // Initialize a cURL session
+        $ch = curl_init();
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_URL, $myURI);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_USERPWD, "$myUsername:$myPassword"); // Basic authentication
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+        // Execute the cURL request
+        $response = curl_exec($ch);
+
+        // Check for errors
+        if(curl_errno($ch)) {
+            echo "An error occurred: " . curl_error($ch);
+            return null;
+        }
+
+        // Close cURL session
+        curl_close($ch);
+
+        // Return the response
+        return $response;
     }
 }

@@ -13,11 +13,18 @@
         <?= $this->Html->link('<i data-feather="activity" class="align-self-center menu-icon"></i>Courses', ['controller'=>'transports', 'action'=>'index'], ['escape'=>false]) ?>
     </li>
     <li>
+        <?= $this->Html->link('<i data-feather="users" class="align-self-center menu-icon"></i>Abonnés', ['controller'=>'pupils', 'action'=>'index'], ['escape'=>false]) ?>
+    </li>
+    <li>
         <?= $this->Html->link('<i data-feather="credit-card" class="align-self-center menu-icon"></i>Payements', ['controller'=>'payments', 'action'=>'index'], ['escape'=>false]) ?>
     </li>
 
     <hr class="hr-dashed hr-menu">
     <li class="menu-label my-2">Components & Extra</li>
+
+    <li>
+        <?= $this->Html->link('<i data-feather="link-2" class="align-self-center menu-icon"></i>Messages', ['controller'=>'transports', 'action'=>'messages'], ['escape'=>false]) ?>
+    </li>
 
     <li>
         <?= $this->Html->link('<i data-feather="link-2" class="align-self-center menu-icon"></i>Assignations', ['controller'=>'assignments', 'action'=>'index'], ['escape'=>false]) ?>

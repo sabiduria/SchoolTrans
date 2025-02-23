@@ -47,6 +47,9 @@ class PaymentsController extends AppController
         $payment = $this->Payments->newEmptyEntity();
         if ($this->request->is('post')) {
             $payment = $this->Payments->patchEntity($payment, $this->request->getData());
+
+            $payment->reference = GeneralController::generateReference('Payments', 'FCT');
+
             if ($this->Payments->save($payment)) {
                 $this->Flash->success(__('The payment has been saved.'));
 
@@ -54,7 +57,14 @@ class PaymentsController extends AppController
             }
             $this->Flash->error(__('The payment could not be saved. Please, try again.'));
         }
-        $dependants = $this->Payments->Dependants->find('list', limit: 200)->all();
+        $dependants = $this->Payments->Dependants->find('list', ['keyField' => 'id', 'valueField' => 'id'])
+            ->limit(200)
+            ->toArray();
+
+        // Map the list to use getDependantName($id)
+        $dependants = array_map(function ($id) {
+            return GeneralController::getDependentName($id);
+        }, $dependants);
         $this->set(compact('payment', 'dependants'));
     }
 
@@ -77,7 +87,14 @@ class PaymentsController extends AppController
             }
             $this->Flash->error(__('The payment could not be saved. Please, try again.'));
         }
-        $dependants = $this->Payments->Dependants->find('list', limit: 200)->all();
+        $dependants = $this->Payments->Dependants->find('list', ['keyField' => 'id', 'valueField' => 'id'])
+            ->limit(200)
+            ->toArray();
+
+        // Map the list to use getDependantName($id)
+        $dependants = array_map(function ($id) {
+            return GeneralController::getDependentName($id);
+        }, $dependants);
         $this->set(compact('payment', 'dependants'));
     }
 
